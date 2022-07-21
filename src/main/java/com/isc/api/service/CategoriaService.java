@@ -16,6 +16,10 @@ public class CategoriaService {
         return categoriaRepository.save(categoria);
     }
 
+    public Categoria editarCategoria(Categoria categoria){
+        return categoriaRepository.save(categoria);
+    }
+
     public List<Categoria> listCategoria(){
         return categoriaRepository.findAll();
     }

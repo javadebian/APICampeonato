@@ -19,8 +19,18 @@ public class CategoriaController {
         return  categoriaService.crearCategoria(categoria);
     }
 
+    @PutMapping("/edit")
+    public Categoria editCategoria(@RequestBody Categoria categoria){
+        return categoriaService.editarCategoria(categoria);
+    }
+
     @GetMapping("/all")
     public List<Categoria> listCategoria(){
         return categoriaService.listCategoria();
+    }
+
+    @GetMapping("/list/{estado}")
+    public List<Categoria> listCategoriaEstado(@PathVariable String estado){
+        return categoriaService.listCategoriaEstado(estado);
     }
 }
