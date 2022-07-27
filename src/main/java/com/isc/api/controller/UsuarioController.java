@@ -29,13 +29,18 @@ public class UsuarioController {
         return usuarioService.obtenerPorId(id);
     }
 
-    @GetMapping("/{estado}")
-    public List<Usuario> obtenerUsuarios(@PathVariable String estado){
+    @GetMapping("/listEstado")
+    public List<Usuario> obtenerUsuarios(@RequestParam(name = "estado") String estado){
         return usuarioService.listarUsuariosPorEstado(estado);
     }
 
     @DeleteMapping("/remove")
     public Usuario eliminarUsuario(@RequestBody Usuario usuario){
         return usuarioService.eliminarUsuario(usuario);
+    }
+
+    @GetMapping("/login")
+    public Boolean encriptarMD5(@RequestParam(name = "dni") String dni, @RequestParam(name = "clave") String clave){
+        return usuarioService.loginUser(dni,clave);
     }
 }

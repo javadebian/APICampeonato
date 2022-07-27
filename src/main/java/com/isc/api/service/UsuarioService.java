@@ -13,6 +13,8 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     public Usuario crearUsuario(Usuario usuario){
+        String clave= usuarioRepository.encriptarLogin(usuario.getClave());
+        usuario.setClave(clave);
         return usuarioRepository.save(usuario);
     }
 
@@ -31,5 +33,15 @@ public class UsuarioService {
 
     public List<Usuario> listarUsuariosPorEstado(String estado){
         return usuarioRepository.listarPorEstado(estado);
+    }
+
+    public String encriptarLogin(String clave){
+     return usuarioRepository.encriptarLogin(clave);
+    }
+
+    public Boolean loginUser(String dni, String passw){
+        String clave= usuarioRepository.encriptarLogin(passw);
+        Usuario user= usuarioRepository.loginUsuario(dni,clave);
+        return user!=null;
     }
 }
