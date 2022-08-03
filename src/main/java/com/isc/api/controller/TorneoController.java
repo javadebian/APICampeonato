@@ -31,8 +31,8 @@ public class TorneoController {
     }
 
     @GetMapping("/{estado}")
-    public List<Torneo> obtenerTorneos(@PathVariable String estado){
-        return torneoService.listarTorneoPorEstado(estado);
+    public List<Torneo> obtenerTorneos(@PathVariable int idUsuario,@PathVariable String estado){
+        return torneoService.listarTorneoPorEstado(idUsuario,estado);
     }
 
     @DeleteMapping("/remove")

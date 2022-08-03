@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/usuario", produces = "application/json")
@@ -40,7 +41,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/login")
-    public Boolean encriptarMD5(@RequestParam(name = "dni") String dni, @RequestParam(name = "clave") String clave){
+    public Map<String, Object> encriptarMD5(@RequestParam(name = "dni") String dni, @RequestParam(name = "clave") String clave){
         return usuarioService.loginUser(dni,clave);
     }
 }

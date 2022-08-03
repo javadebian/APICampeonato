@@ -8,6 +8,9 @@ import java.util.List;
 
 public interface TorneoRepository extends JpaRepository<Torneo,Integer> {
 
-    @Query("Select t From Torneo t where t.estado = ?1")
-    public List<Torneo> listTorneosPorEstado(String estado);
+    @Query("Select t From Torneo t where t.idUsuario = ?1 AND t.estado = ?2")
+    public List<Torneo> listTorneosPorEstado(int idUsuario,String estado);
+
+    @Query("select t from Torneo t where t.idUsuario = ?1")
+    public List<Torneo> listTorneosUsuario(int idUsuario);
 }

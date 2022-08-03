@@ -30,7 +30,7 @@ public class TorneoService{
         return torneoRepository.getReferenceById(id);
     }
 
-    public List<Torneo> listarTorneoPorEstado(String estado){
-        return torneoRepository.listTorneosPorEstado(estado);
+    public List<Torneo> listarTorneoPorEstado(int idUsuario, String estado){
+        return torneoRepository.listTorneosPorEstado(idUsuario,estado);
     }
 }
