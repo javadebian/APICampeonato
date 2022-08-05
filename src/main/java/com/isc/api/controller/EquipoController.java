@@ -31,9 +31,14 @@ public class EquipoController {
         return equipoService.obtenerPorId(id);
     }
 
-    @GetMapping("/{estado}")
-    public List<Equipo> obtenerEquipo(@PathVariable String estado){
-        return equipoService.listarEquipoPorEstado(estado);
+    @GetMapping("/listEquipos")
+    public List<Equipo> obtenerEquipos(@RequestParam(name = "idTorneo") int idTorneo,@RequestParam(name = "estado") String estado){
+        return equipoService.listarEquipoPorEstado(idTorneo,estado);
+    }
+
+    @GetMapping("/listEquiposPorUsuario")
+    public List<Equipo> obtenerEquiposPorUsuario(@RequestParam(name = "idUsuario") int idUsuario,@RequestParam(name = "estado") String estado){
+        return equipoService.listarEquipoPorUsuario(idUsuario,estado);
     }
 
     @DeleteMapping("/remove")

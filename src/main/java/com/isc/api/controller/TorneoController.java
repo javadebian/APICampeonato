@@ -30,8 +30,8 @@ public class TorneoController {
         return torneoService.obtenerPorId(id);
     }
 
-    @GetMapping("/{estado}")
-    public List<Torneo> obtenerTorneos(@PathVariable int idUsuario,@PathVariable String estado){
+    @GetMapping("/listTorneos")
+    public List<Torneo> obtenerTorneos(@RequestParam(name = "idUsuario")  int idUsuario,@RequestParam(name = "estado") String estado){
         return torneoService.listarTorneoPorEstado(idUsuario,estado);
     }
 

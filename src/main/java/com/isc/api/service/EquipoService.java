@@ -30,7 +30,11 @@ public class EquipoService {
         return equipoRepository.getReferenceById(id);
     }
 
-    public List<Equipo> listarEquipoPorEstado(String estado){
-        return equipoRepository.listEquipoPorEstado(estado);
+    public List<Equipo> listarEquipoPorEstado(int idTorneo, String estado){
+        return equipoRepository.listEquipoPorEstado(idTorneo,estado);
+    }
+
+    public List<Equipo> listarEquipoPorUsuario(int idUsuario, String estado){
+        return equipoRepository.listEquipoPorUsuario(idUsuario,estado);
     }
 }
