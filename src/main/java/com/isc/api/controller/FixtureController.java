@@ -6,17 +6,14 @@ import com.isc.api.service.FixtureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/fixture", produces = "application/json")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class FixtureController {
     @Autowired
     private FixtureService fixtureService;
-
-    @PostMapping("/add")
-    public Fixture addEquipo(@RequestBody Fixture fixture){
-        return fixtureService.crearFixture(fixture);
-    }
 
     @PutMapping("/edit")
     public Fixture editEquipo(@RequestBody Fixture fixture){
@@ -28,8 +25,8 @@ public class FixtureController {
         return fixtureService.obtenerPorId(id);
     }
 
-    @DeleteMapping("/remove")
-    public void eliminarEquipo(@RequestBody Fixture fixture){
-        fixtureService.eliminarFixture(fixture);
+    @GetMapping("/list")
+    public List<Fixture> obtenerFixtures(@RequestParam(name = "idTorneo") int idTorneo){
+        return fixtureService.obtenerFixture(idTorneo);
     }
 }

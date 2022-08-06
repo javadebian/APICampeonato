@@ -49,6 +49,10 @@ public class Fixture {
     @Column(name = "cancha")
     private String cancha;
 
+    @Basic
+    @Column(name = "idTorneo")
+    private Integer idTorneo;
+
     public Integer getId() {
         return id;
     }
@@ -151,5 +155,13 @@ public class Fixture {
 
     public void setCancha(String cancha) {
         this.cancha = cancha;
+    }
+
+    public Integer getIdTorneo() {
+        return idTorneo;
+    }
+
+    public void setIdTorneo(Integer idTorneo) {
+        this.idTorneo = idTorneo;
     }
 }

@@ -23,10 +23,10 @@ public class Equipo {
     private Integer idUsuario;
     @ManyToOne
     @JoinColumn(name = "idCategoria", referencedColumnName = "id", nullable = false)
-    private Categoria tCategoriaByIdCategoria;
+    private Categoria categoria;
     @ManyToOne
     @JoinColumn(name = "idTorneo", referencedColumnName = "id", nullable = false)
-    private Torneo tTorneoByIdTorneo;
+    private Torneo torneo;
 
     public Integer getId() {
         return id;
@@ -68,19 +68,19 @@ public class Equipo {
         this.idUsuario = idUsuario;
     }
 
-    public Categoria gettCategoriaByIdCategoria() {
-        return tCategoriaByIdCategoria;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void settCategoriaByIdCategoria(Categoria tCategoriaByIdCategoria) {
-        this.tCategoriaByIdCategoria = tCategoriaByIdCategoria;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public Torneo gettTorneoByIdTorneo() {
-        return tTorneoByIdTorneo;
+    public Torneo getTorneo() {
+        return torneo;
     }
 
-    public void settTorneoByIdTorneo(Torneo tTorneoByIdTorneo) {
-        this.tTorneoByIdTorneo = tTorneoByIdTorneo;
+    public void setTorneo(Torneo torneo) {
+        this.torneo = torneo;
     }
 }
